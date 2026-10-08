@@ -1,0 +1,37 @@
+/* Book Lookup: the results list of the search window. */
+.book-lookup-suggestion {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-3);
+}
+
+.book-lookup-thumb {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--radius-s);
+  background-color: var(--background-modifier-border);
+}
+
+.book-lookup-thumb.is-empty {
+  visibility: hidden;
+}
+
+.book-lookup-text {
+  min-width: 0;
+}
+
+.book-lookup-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-lookup-meta {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
