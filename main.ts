@@ -10,6 +10,7 @@ import { addDetails, searchBooks, SearchError } from './src/search.ts';
 import type { HttpGet, Provider, SearchOptions } from './src/search.ts';
 import { renderTemplate } from './src/template.ts';
 import type { DateFormatter } from './src/template.ts';
+import { moreDefinitions, renderMore } from './src/more-link.ts';
 
 /** The part of moment this plugin uses, typed here: the directory's review has no types for `moment`. */
 interface Moment {
@@ -358,6 +359,7 @@ class BookNotesSettingTab extends PluginSettingTab {
         ],
       },
       { ...TEXT.importSettings, action: () => void this.importSettings() },
+      ...(moreDefinitions() as SettingDefinitionItem[]),
     ];
   }
 
@@ -394,6 +396,7 @@ class BookNotesSettingTab extends PluginSettingTab {
   display(): void {
     this.legacy = true;
     this.draw();
+    renderMore(this.containerEl, (el) => new Setting(el));
   }
 
   private draw(): void {
